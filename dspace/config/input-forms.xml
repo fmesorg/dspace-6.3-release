@@ -38,6 +38,7 @@
 
    <form name="traditional">
      <page number="1">
+       <!--
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>contributor</dc-element>
@@ -48,6 +49,7 @@
          <hint>Enter the names of the authors of this item.</hint>
          <required></required>
        </field>
+       -->
 
        <field>
          <dc-schema>dc</dc-schema>
@@ -71,6 +73,7 @@
          <required></required>
        </field>
 
+       <!--
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>date</dc-element>
@@ -83,7 +86,9 @@
                         applicable.</hint>
          <required>You must enter at least the year.</required>
        </field>
+       -->
 
+       <!--
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>publisher</dc-element>
@@ -94,6 +99,7 @@
          <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
          <required></required>
        </field>
+       -->
 
        <field>
          <dc-schema>dc</dc-schema>
@@ -106,6 +112,7 @@
          <required></required>
        </field>
 
+       <!--
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>relation</dc-element>
@@ -116,6 +123,7 @@
          <hint>Enter the series and number assigned to this item by your community.</hint>
          <required></required>
        </field>
+       -->
 
        <field>
          <dc-schema>dc</dc-schema>
@@ -156,15 +164,14 @@ it, please enter the types and the actual numbers or codes.</hint>
      <page number="2">
        <field>
          <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>author</dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Subject Keywords</label>
-         <input-type>twobox</input-type>
-         <hint>Enter appropriate subject keywords or phrases. </hint>
+         <label>Author(s)</label>
+         <input-type>name</input-type>
+         <hint></hint>
          <required></required>
-         <vocabulary>srsc</vocabulary>
+	 <type-bind>Book, Journal Article, Guidelines/Report, News</type-bind>
        </field>
 
        <field>
@@ -176,8 +183,10 @@ it, please enter the types and the actual numbers or codes.</hint>
          <input-type>textarea</input-type>
          <hint>Enter the abstract of the item. </hint>
          <required></required>
+	 <type-bind>Book, Journal Article, Guidelines/Report</type-bind>
        </field>
 
+       <!--
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>description</dc-element>
@@ -188,6 +197,7 @@ it, please enter the types and the actual numbers or codes.</hint>
          <hint>Enter the names of any sponsors and/or funding codes in the box. </hint>
          <required></required>
        </field>
+       -->
 
        <field>
          <dc-schema>dc</dc-schema>
@@ -198,7 +208,256 @@ it, please enter the types and the actual numbers or codes.</hint>
          <input-type>textarea</input-type>
          <hint>Enter any other description or comments in this box. </hint>
          <required></required>
+	 <type-bind>Documentary, Video Interview</type-bind>
        </field>
+
+       <field>
+         <dc-schema>fmes</dc-schema>
+         <dc-element>director</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Director</label>
+	 <input-type>name</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Documentary</type-bind>
+       </field>
+
+       <field>
+         <dc-schema>fmes</dc-schema>
+         <dc-element>distributor</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Distributor</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Documentary</type-bind>
+       </field>
+
+       <field>
+         <dc-schema>fmes</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>release</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Released on</label>
+         <input-type>date</input-type>
+         <hint>Date of release</hint>
+         <required></required>
+	 <type-bind>Documentary</type-bind>
+       </field>
+
+       <field>
+         <dc-schema>fmes</dc-schema>
+         <dc-element>runningTime</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Running Time</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Documentary, Video Interview</type-bind>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>publisher</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publisher</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Book, Journal Article</type-bind>
+       </field>
+
+       <field>
+         <dc-schema>fmes</dc-schema>
+         <dc-element>edition</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Edition</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Book</type-bind>
+       </field>
+
+       <field>
+         <dc-schema>fmes</dc-schema>
+         <dc-element>series</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Series</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Book</type-bind>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>rights</dc-element>
+         <dc-qualifier>holder</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Copyright Owner</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Book, Journal Article</type-bind>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>copyright</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Copyright Date</label>
+         <input-type>date</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Book, Journal Article</type-bind>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Date published</label>
+         <input-type>date</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Book, Journal Article, Guidelines/Report, News</type-bind>
+       </field>
+
+       <field>
+         <dc-schema>fmes</dc-schema>
+         <dc-element>numPages</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Number of Pages</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Book, Journal Article, Guidelines/Report, Bill/Act, Court Judgement, News</type-bind>
+       </field>
+
+       <field>
+         <dc-schema>fmes</dc-schema>
+         <dc-element>institution</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Name of Institution</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Guidelines/Report</type-bind>
+       </field>
+
+
+       <field>
+         <dc-schema>fmes</dc-schema>
+         <dc-element>legislativeBody</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Legislative Body</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Bill/Act</type-bind>
+       </field>
+
+
+       <field>
+         <dc-schema>fmes</dc-schema>
+         <dc-element>ministry</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Ministry</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Bill/Act</type-bind>
+       </field>
+
+
+       <field>
+         <dc-schema>fmes</dc-schema>
+         <dc-element>court</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Court</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Court Judgement</type-bind>
+       </field>
+
+
+       <field>
+         <dc-schema>fmes</dc-schema>
+         <dc-element>caseNumber</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+	 <label>PIL/Case Number</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>Court Judgement</type-bind>
+       </field>
+
+
+       <field>
+         <dc-schema>fmes</dc-schema>
+         <dc-element>publication</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publication</label>
+         <input-type>onebox</input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind>News</type-bind>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>Subject Keywords</label>
+         <input-type>twobox</input-type>
+         <hint>Enter appropriate subject keywords or phrases. </hint>
+         <required></required>
+         <vocabulary>srsc</vocabulary>
+       </field>
+
+       <!--
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element></dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label></label>
+         <input-type></input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind></type-bind>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element></dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label></label>
+         <input-type></input-type>
+         <hint></hint>
+         <required></required>
+	 <type-bind></type-bind>
+       </field>
+       -->
      </page>
    </form>
 
@@ -262,92 +521,36 @@ it, please enter the types and the actual numbers or codes.</hint>
 
    <value-pairs value-pairs-name="common_types" dc-term="type">
      <pair>
-       <displayed-value>Animation</displayed-value>
-       <stored-value>Animation</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Article</displayed-value>
-       <stored-value>Article</stored-value>
+       <displayed-value>Documentary</displayed-value>
+       <stored-value>Documentary</stored-value>
      </pair>
      <pair>
        <displayed-value>Book</displayed-value>
        <stored-value>Book</stored-value>
      </pair>
      <pair>
-       <displayed-value>Book chapter</displayed-value>
-       <stored-value>Book chapter</stored-value>
+       <displayed-value>Journal Article</displayed-value>
+       <stored-value>Journal Article</stored-value>
      </pair>
      <pair>
-       <displayed-value>Dataset</displayed-value>
-       <stored-value>Dataset</stored-value>
+       <displayed-value>Video Interview</displayed-value>
+       <stored-value>Video Interview</stored-value>
      </pair>
      <pair>
-       <displayed-value>Learning Object</displayed-value>
-       <stored-value>Learning Object</stored-value>
+       <displayed-value>Guidelines/Report</displayed-value>
+       <stored-value>Guidelines/Report</stored-value>
      </pair>
      <pair>
-       <displayed-value>Image</displayed-value>
-       <stored-value>Image</stored-value>
+       <displayed-value>Bill/Act</displayed-value>
+       <stored-value>Bill/Act</stored-value>
      </pair>
      <pair>
-       <displayed-value>Image, 3-D</displayed-value>
-       <stored-value>Image, 3-D</stored-value>
+       <displayed-value>Court Judgement</displayed-value>
+       <stored-value>Court Judgement</stored-value>
      </pair>
      <pair>
-       <displayed-value>Map</displayed-value>
-       <stored-value>Map</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Musical Score</displayed-value>
-       <stored-value>Musical Score</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Plan or blueprint</displayed-value>
-       <stored-value>Plan or blueprint</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Preprint</displayed-value>
-       <stored-value>Preprint</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Presentation</displayed-value>
-       <stored-value>Presentation</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Recording, acoustical</displayed-value>
-       <stored-value>Recording, acoustical</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Recording, musical</displayed-value>
-       <stored-value>Recording, musical</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Recording, oral</displayed-value>
-       <stored-value>Recording, oral</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Software</displayed-value>
-       <stored-value>Software</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Technical Report</displayed-value>
-       <stored-value>Technical Report</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Thesis</displayed-value>
-       <stored-value>Thesis</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Video</displayed-value>
-       <stored-value>Video</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Working Paper</displayed-value>
-       <stored-value>Working Paper</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Other</displayed-value>
-       <stored-value>Other</stored-value>
+       <displayed-value>News</displayed-value>
+       <stored-value>News</stored-value>
      </pair>
    </value-pairs>
 
