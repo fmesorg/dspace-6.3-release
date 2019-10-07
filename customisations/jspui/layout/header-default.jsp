@@ -52,9 +52,7 @@
         <link rel="shortcut icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon"/>
         <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/jquery-ui-1.10.3.custom/redmond/jquery-ui-1.10.3.custom.css" type="text/css" />
         <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap.min.css" type="text/css" />
-	<%--
         <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap-theme.min.css" type="text/css" />
-	--%>
         <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/dspace-theme.css" type="text/css" />
 <%
     if (!"NONE".equals(feedRef))
@@ -137,10 +135,10 @@
             <h1><fmt:message key="jsp.layout.header-default.brand.heading" /></h1>
             <fmt:message key="jsp.layout.header-default.brand.description" /> 
         </div>
-	<%--
+<%--
         <div class="col-md-3"><img class="pull-right" src="<%= request.getContextPath() %>/image/logo.gif" alt="DSpace logo" />
         </div>
-	--%>
+--%>
     </div>
 </div>
 <br/>
